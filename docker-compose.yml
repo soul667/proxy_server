@@ -4,7 +4,9 @@ services:
     container_name: clash-proxy
     restart: unless-stopped
     volumes:
+      - ./config.yaml:/root/.config/mihomo/config.yaml
       - ./proxy.yaml:/root/.config/mihomo/proxy.yaml
+      - ui:/root/.config/mihomo/ui
     ports:
       - "1081:1081"   # 香港
       - "1082:1082"   # 日本
@@ -13,3 +15,6 @@ services:
       - "1085:1085"   # 弗吉尼亚
       - "9090:9090"   # 外部控制面板
     network_mode: bridge
+
+volumes:
+  ui:
