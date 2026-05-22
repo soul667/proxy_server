@@ -1,10 +1,9 @@
 services:
   clash:
-    image: metacubex/mihomo:latest
+    image: ghcr.io/soul667/proxy_server:latest
     container_name: clash-proxy
     restart: unless-stopped
     volumes:
-      - ./config.yaml:/root/.config/mihomo/config.yaml
       - ./proxy.yaml:/root/.config/mihomo/proxy.yaml
     ports:
       - "1081:1081"   # 香港
