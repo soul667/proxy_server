@@ -1,0 +1,16 @@
+services:
+  clash:
+    image: metacubex/mihomo:latest
+    container_name: clash-proxy
+    restart: unless-stopped
+    volumes:
+      - ./config.yaml:/root/.config/mihomo/config.yaml
+      - ./proxy.yaml:/root/.config/mihomo/proxy.yaml
+    ports:
+      - "1081:1081"   # 香港
+      - "1082:1082"   # 日本
+      - "1083:1083"   # 美国
+      - "1084:1084"   # 新加坡
+      - "1085:1085"   # 弗吉尼亚
+      - "9090:9090"   # 外部控制面板
+    network_mode: bridge
