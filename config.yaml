@@ -43,6 +43,20 @@ listeners:
     port: 1085
     proxy: US-EAST
 
+  - name: jiakuan
+    type: mixed
+    port: 1086
+    proxy: JIAKUAN
+
+proxies:
+  - name: "家宽"
+    type: http
+    server: YOUR_HOME_IP      # 家宽 HTTP 代理地址
+    port: 443
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    dialer-proxy: HK
+
 proxy-providers:
   my-sub:
     type: file
@@ -82,6 +96,11 @@ proxy-groups:
     use:
       - my-sub
     filter: "弗吉尼亚"
+
+  - name: JIAKUAN
+    type: select
+    proxies:
+      - 家宽
 
 rules:
   - MATCH,DIRECT
